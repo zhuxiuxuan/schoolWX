@@ -5,17 +5,105 @@
   <artifactId>schoolWeb</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>schoolWeb Maven Webapp</name>
+  <name>schoolWeb</name>
   <url>http://maven.apache.org</url>
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
-  <build>
-    <finalName>schoolWeb</finalName>
-  </build>
+  
+  
+  <parent>
+		<groupId> org.springframework.boot</groupId>
+		<artifactId> spring-boot-starter-parent </artifactId>
+		<version> 2.1.1.RELEASE </version>
+	</parent>
+	<!-- 完成全局的配置、替换 -->
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- 使用mybatis start -->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+		<!-- 使用mybatis end -->
+		
+		<!-- 数据库start -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		
+		
+		<dependency>
+		  <groupId>com.alibaba</groupId>
+		  <artifactId>druid</artifactId>
+		  <version>1.0.25</version>
+		</dependency>
+		<!-- 数据库end -->
+		
+		<!-- jstl标签start -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<!-- jstl标签end -->
+
+		<!-- aop 切面start-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+		<!-- aop 切面end -->
+		
+		<!-- 使用jsp页面start -->
+		<!--第一种方式访问页面，需在application.properties文件中配置前后缀 -->
+		<!-- <dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+		</dependency> -->
+		<!-- 第二种方式访问页面  需在application.properties文件关闭缓存-->
+		<dependency> 
+				<groupId>org.springframework.boot</groupId> 
+				<artifactId>spring-boot-starter-thymeleaf</artifactId> 
+			</dependency>
+		<!-- 使用jsp页面end -->
+		
+		<!-- 热部署start -->
+		<dependency>
+		  <groupId>org.springframework.boot</groupId>
+		  <artifactId>spring-boot-devtools</artifactId>
+		  <optional>true</optional> <!-- 这个需要为 true 热部署才有效 -->
+		</dependency>
+		<!-- 热部署end -->
+		<!-- 文件处理器start -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<!-- 文件处理器end -->
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin </artifactId>
+			</plugin>
+		</plugins>
+	</build>
 </project>

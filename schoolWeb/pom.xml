@@ -47,7 +47,7 @@
 			<scope>runtime</scope>
 		</dependency>
 		
-		
+		<!-- 连接池 -->
 		<dependency>
 		  <groupId>com.alibaba</groupId>
 		  <artifactId>druid</artifactId>
@@ -97,6 +97,13 @@
 			<optional>true</optional>
 		</dependency>
 		<!-- 文件处理器end -->
+		
+		<!-- 使用redis start -->
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+		<!-- 使用redis end -->
 	</dependencies>
 	<build>
 		<plugins>
